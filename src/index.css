@@ -237,16 +237,29 @@ footer{border-top:1px solid var(--border);background:var(--bg2);padding:4rem 0 0
 
 /* RESPONSIVE */
 @media(max-width:768px){
+  .navbar{padding:1rem 1.25rem}
+  .nav-inner{position:relative;justify-content:center;gap:1rem}
+  .nav-logo{justify-content:center}
+  .nav-toggle{position:absolute;right:0}
+  .hero{min-height:100svh}
+  .hero-video{transform:scale(1.08)}
+  .hero-content{width:100%;max-width:none;padding:92px 1.25rem 0}
+  .hero-sub{max-width:100%;overflow:hidden;line-height:1.5;word-break:break-word}
+  .hero-ctas{margin-bottom:2.25rem}
+  .hero-badges{gap:.65rem;max-width:100%;padding:0 .25rem}
+  .hero-badge{max-width:100%;white-space:normal;text-align:center}
   .feature-card-wrap{max-width:300px}
   .feature-card-glow,.feature-card-panel{height:290px}
   .feature-card-content{padding:1.8rem 1.65rem 1.5rem}
   .saas-card-video{display:none}
   .saas-tag{max-width:none}
+  .platform-video{min-height:520px}
   .platform-video::after{background:linear-gradient(180deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.78) 100%)}
-  .platform-video video{transform:translateX(4%) scale(1.08)}
-  .platform-video-content{left:1.5rem;right:1.5rem;top:auto;bottom:1.5rem;max-width:none;transform:none;padding-right:0}
-  .platform-video-content h3{font-size:2rem}
+  .platform-video video{height:100%;min-height:520px;aspect-ratio:auto;opacity:.58;transform:translateX(4%) scale(1.08)}
+  .platform-video-content{left:1.5rem;right:1.5rem;top:50%;bottom:auto;max-width:none;transform:translateY(-50%);padding-right:0;text-align:center}
+  .platform-video-content h3{font-size:clamp(1.7rem,7.4vw,2.25rem);line-height:1.12}
   .platform-video-content p:not(.platform-video-kicker){font-size:.9rem;line-height:1.55;margin-bottom:1rem}
+  .platform-video-content .btn-primary{margin:0 auto}
   .platform-video-content .btn-primary{padding:.7rem 1.25rem;font-size:.82rem}
   section{padding:4.5rem 0}
   .products-grid,.saas-grid,.apps-grid,.web-grid,.services-grid,.why-grid{grid-template-columns:1fr}
@@ -258,6 +271,14 @@ footer{border-top:1px solid var(--border);background:var(--bg2);padding:4rem 0 0
 }
 @media(max-width:480px){
   .hero-headline{font-size:2.2rem}
+  .hero-content{padding-left:1rem;padding-right:1rem}
+  .hero-video{transform:scale(1.12)}
+  .hero-sub{font-size:.78rem;letter-spacing:.01em}
+  .hero-badge{font-size:.66rem}
+  .platform-video{min-height:540px}
+  .platform-video video{min-height:540px}
+  .platform-video-content{left:1.25rem;right:1.25rem}
+  .platform-video-kicker{font-size:.66rem;letter-spacing:.16em;margin-bottom:.75rem}
   .stats-grid{grid-template-columns:1fr}
   .hero-ctas,.contact-ctas{flex-direction:column;align-items:center}
 }
