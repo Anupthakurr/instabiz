@@ -6,9 +6,23 @@ const PRODUCTS = [
   { name: 'Instant Dukaan', link: 'https://www.instantdukaan.com/' },
 ]
 
+const FOOTER_VIDEO = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260322_013248_a74099a8-be2b-4164-a823-eddd5e149fa1.mp4'
+
 export default function Footer() {
   return (
     <footer>
+      <video
+        className="footer-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+      >
+        <source src={FOOTER_VIDEO} type="video/mp4" />
+      </video>
+      <div className="footer-video-overlay" aria-hidden="true" />
       <div className="container footer-inner">
         <div className="footer-brand">
           <div className="nav-logo">
