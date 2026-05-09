@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import TiltCard from './TiltCard'
+import BlueWhiteText from './BlueWhiteText'
 
 const FEATURE_VIDEO = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_024928_1efd0b0d-6c02-45a8-8847-1030900c4f63.mp4'
 const PLATFORM_VIDEO = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_024928_1efd0b0d-6c02-45a8-8847-1030900c4f63.mp4'
@@ -49,7 +50,7 @@ function PortfolioCard({ item }) {
         aria-hidden="true"
       />
       <div className="saas-tag">{item.tag}</div>
-      <h3>{item.name}</h3>
+      <h3><BlueWhiteText text={item.name} /></h3>
       <p>{item.desc}</p>
       <a href={item.link} target="_blank" rel="noopener noreferrer" className="btn-outline">Visit Site -&gt;</a>
     </TiltCard>
@@ -101,7 +102,7 @@ function PlatformVideo() {
       />
       <div className="platform-video-content">
         <p className="platform-video-kicker">Platform Engineering</p>
-        <h3>Designed for products that keep moving.</h3>
+        <h3><BlueWhiteText text="Designed for products that keep moving." /></h3>
         <p>
           From AI workflows to marketplace systems, we build digital platforms with the speed,
           reliability, and polish modern teams expect.
@@ -117,7 +118,9 @@ export default function SaasPortfolio() {
     <section id="portfolio">
       <div className="container">
         <p className="label">WHAT WE'VE BUILT</p>
-        <h2 className="sec-title" data-g="SaaS & Platform Portfolio">SaaS &amp; Platform Portfolio</h2>
+        <h2 className="sec-title" data-g="SaaS & Platform Portfolio">
+          <BlueWhiteText text="SaaS & Platform Portfolio" />
+        </h2>
         <div className="saas-grid">
           {ITEMS.map(item => (
             <PortfolioCard key={item.name} item={item} />

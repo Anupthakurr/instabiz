@@ -1,4 +1,5 @@
 import TiltCard from './TiltCard'
+import BlueWhiteText from './BlueWhiteText'
 
 const CARDS = [
   { icon:'⚡', title:'Innovation-Driven Development', desc:'Modern, scalable, and future-ready digital products' },
@@ -13,12 +14,14 @@ export default function WhyUs() {
     <section id="why">
       <div className="container">
         <p className="label">WHY TEAMS CHOOSE US</p>
-        <h2 className="sec-title" data-g="Why Instabiz Web">Why Instabiz Web</h2>
+        <h2 className="sec-title" data-g="Why Instabiz Web">
+          <BlueWhiteText text="Why Instabiz Web" />
+        </h2>
         <div className="why-grid">
           {CARDS.map(c => (
             <TiltCard key={c.title} className="why-card glow-card reveal">
               <div className="why-icon">{c.icon}</div>
-              <h3>{c.title}</h3>
+              <h3><BlueWhiteText text={c.title} /></h3>
               <p>{c.desc}</p>
             </TiltCard>
           ))}

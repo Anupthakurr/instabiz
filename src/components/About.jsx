@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import TiltCard from './TiltCard'
+import BlueWhiteText from './BlueWhiteText'
 
 const STATS = [
   { target: 12000, suffix: '+', label: 'Live Users (Scout)' },
@@ -44,7 +45,7 @@ export default function About() {
       <div className="container">
         <p className="label">WHO WE ARE</p>
         <h2 className="sec-title" data-g="Transforming Business Through Technology">
-          Transforming Business Through Technology
+          <BlueWhiteText text="Transforming Business Through Technology" />
         </h2>
         <p className="about-text reveal">
           Instabiz Web is a modern software development and IT solutions company specializing in AI automation,

@@ -1,4 +1,5 @@
 import TiltCard from './TiltCard'
+import BlueWhiteText from './BlueWhiteText'
 
 const APPS = [
   { icon: '🏢', badge: '5,000+ Downloads', name: 'Egniol', desc: 'Government scheme discovery and consultancy booking for MSMEs', link: 'https://play.google.com/store/apps/details?id=com.egniolapp&hl=en_IN' },
@@ -13,13 +14,15 @@ export default function MobileApps() {
     <section id="apps">
       <div className="container">
         <p className="label">APPS THAT MOVE PEOPLE</p>
-        <h2 className="sec-title" data-g="Mobile Applications">Mobile Applications</h2>
+        <h2 className="sec-title" data-g="Mobile Applications">
+          <BlueWhiteText text="Mobile Applications" />
+        </h2>
         <div className="apps-grid">
           {APPS.map(app => (
             <TiltCard key={app.name} className="app-card glow-card reveal">
               <div className="app-icon">{app.icon}</div>
               <div className="app-badge">{app.badge}</div>
-              <h3>{app.name}</h3>
+              <h3><BlueWhiteText text={app.name} /></h3>
               <p>{app.desc}</p>
               <a href={app.link} target="_blank" rel="noopener noreferrer" className="btn-outline">View on Play Store →</a>
             </TiltCard>

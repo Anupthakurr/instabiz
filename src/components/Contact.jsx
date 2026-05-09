@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import BlueWhiteText from './BlueWhiteText'
 
 export default function Contact() {
   const meshRef = useRef(null)
@@ -24,8 +25,9 @@ export default function Contact() {
       <div className="container contact-inner">
         <p className="label">LET'S CONNECT</p>
         <h2 className="contact-headline">
-          Let's Build Something<br />
-          <span style={{ color: 'var(--cyan)' }}>Powerful</span> Together
+          <BlueWhiteText text="Let's Build Something" />
+          <br />
+          <BlueWhiteText text="Powerful Together" startBlue={false} />
         </h2>
         <p className="contact-sub">
           Startup, enterprise, healthcare provider, or consultancy — we turn ideas into scalable technology.

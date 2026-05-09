@@ -1,5 +1,7 @@
-import { Bot, MessageCircle, Phone, ShoppingCart, Zap } from 'lucide-react'
+import { useState } from 'react'
+import { ArrowLeft, ArrowRight, Bot, MessageCircle, Phone, ShoppingCart, Zap } from 'lucide-react'
 import FeatureCard from './FeatureCard'
+import BlueWhiteText from './BlueWhiteText'
 
 const PROJECT_CARDS = [
   {
@@ -45,16 +47,70 @@ const PROJECT_CARDS = [
 ]
 
 export default function Products() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const angle = 360 / PROJECT_CARDS.length
+
+  const rotate = (direction) => {
+    setActiveIndex((current) => (
+      current + direction + PROJECT_CARDS.length
+    ) % PROJECT_CARDS.length)
+  }
+
   return (
     <section id="products">
       <div className="container">
         <p className="label">OUR INTELLIGENCE STACK</p>
-        <h2 className="sec-title" data-g="Our Intelligence Stack">Our Intelligence Stack</h2>
-        <div className="w-full bg-[#0A0A0B] flex flex-col items-center p-6 md:p-12 font-sans rounded-[28px]">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-8 w-full max-w-[936px]">
-          {PROJECT_CARDS.map((card) => (
-            <FeatureCard key={card.title} {...card} />
-          ))}
+        <h2 className="sec-title" data-g="Our Intelligence Stack">
+          <BlueWhiteText text="Our Intelligence Stack" />
+        </h2>
+        <div className="product-carousel-shell">
+          <button
+            className="product-carousel-arrow product-carousel-arrow-left"
+            type="button"
+            aria-label="Previous product"
+            onClick={() => rotate(-1)}
+          >
+            <ArrowLeft size={22} strokeWidth={2.4} />
+          </button>
+
+          <div className="product-carousel-stage" aria-live="polite">
+            <div
+              className="product-carousel-ring"
+              style={{ transform: `rotateY(${-activeIndex * angle}deg)` }}
+            >
+              {PROJECT_CARDS.map((card, index) => (
+                <div
+                  className={`product-carousel-item${activeIndex === index ? ' active' : ''}`}
+                  key={card.title}
+                  style={{ transform: `rotateY(${index * angle}deg) translateZ(var(--carousel-radius))` }}
+                  aria-hidden={activeIndex !== index}
+                >
+                  <FeatureCard {...card} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <button
+            className="product-carousel-arrow product-carousel-arrow-right"
+            type="button"
+            aria-label="Next product"
+            onClick={() => rotate(1)}
+          >
+            <ArrowRight size={22} strokeWidth={2.4} />
+          </button>
+
+          <div className="product-carousel-dots" aria-label="Choose product">
+            {PROJECT_CARDS.map((card, index) => (
+              <button
+                key={card.title}
+                type="button"
+                className={`product-carousel-dot${activeIndex === index ? ' active' : ''}`}
+                aria-label={`Show ${card.title}`}
+                aria-current={activeIndex === index}
+                onClick={() => setActiveIndex(index)}
+              />
+            ))}
           </div>
         </div>
       </div>

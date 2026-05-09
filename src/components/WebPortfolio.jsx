@@ -1,4 +1,5 @@
 import TiltCard from './TiltCard'
+import BlueWhiteText from './BlueWhiteText'
 
 const SITES = [
   { flag: '🇨🇦', ind: 'Architecture & Design', domain: 'buildwithchintan.ca', link: 'https://buildwithchintan.ca/' },
@@ -16,13 +17,15 @@ export default function WebPortfolio() {
     <section id="websites">
       <div className="container">
         <p className="label">DIGITAL PRESENCES WE'VE CRAFTED</p>
-        <h2 className="sec-title" data-g="Website Portfolio">Website Portfolio</h2>
+        <h2 className="sec-title" data-g="Website Portfolio">
+          <BlueWhiteText text="Website Portfolio" />
+        </h2>
         <div className="web-grid">
           {SITES.map(s => (
             <TiltCard key={s.domain} className="web-card glow-card reveal">
               <div className="web-flag">{s.flag}</div>
               <div className="web-ind">{s.ind}</div>
-              <h3>{s.domain}</h3>
+              <h3><BlueWhiteText text={s.domain} /></h3>
               <a href={s.link} target="_blank" rel="noopener noreferrer" className="btn-outline">Visit Site →</a>
             </TiltCard>
           ))}

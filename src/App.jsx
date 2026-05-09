@@ -12,6 +12,7 @@ import TechStack from './components/TechStack'
 import WhyUs from './components/WhyUs'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import CustomCursor from './components/CustomCursor'
 import './index.css'
 
 export default function App() {
@@ -70,6 +71,7 @@ export default function App() {
           <p className="site-loader-text">Loading...</p>
         </div>
       )}
+      <CustomCursor />
       <Navbar />
       <main>
         <Hero />
